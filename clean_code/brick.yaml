@@ -29,16 +29,16 @@ vars:
   package_name:
     type: string
     description: Your your project name
-    default: test_project
+    default: mason_project
     prompt: What is your project name?
 
   app_name:
     type: string
     description: Your app name
-    default: Agriunions
+    default: Mason
     prompt: What is your app name?
 
   base_url:
     type: string
     description: Your base url
-    default: https://backend.agriunions.com/
+    default: test.com
