@@ -1,8 +1,11 @@
 
-<h1 align="center">  Mason Brick - <code>new_feature</code></h1>
+
+
+
+<h1 align="center">🧱 Mason Bricks - <code>by Mahmoud Saad</code></h1>
 
 <p align="center">
-  A reusable <strong>Mason brick</strong> for generating feature-based folders in your Flutter project.
+  A collection of reusable <strong>Mason bricks</strong> for generating feature-based and clean architecture code in your Flutter projects.
 </p>
 
 ---
@@ -10,18 +13,31 @@
 ## ⚙️ Install Mason CLI
 
 To use this brick, first install the Mason CLI globally:
-
-```bash
  Install it
  You can install the package from the command line:
+```bash
+  dart pub global activate mason_cli
+```
+```bash
+  dart pub add mason_cli
+```
+<h4>Add new_feature Brick </h4>   
 
- $ dart pub global activate mason_cli
+```bash 
+  mason add new_feature --git-url https://github.com/mahmoud0saad/bricks.git --git-path new_feature
+```
+<h4>Add clean_code Brick </h4>  
+  
+```bash
+  mason add clean_code --git-url https://github.com/mahmoud0saad/bricks.git --git-path clean_code
+ ```
+<h4> Impelement </h4>   
+  
+```bash
+  mason make  new_feature
 
- $ dart pub add mason_cli
+  mason make  clean_code
 
- $ mason add new_feature --git-url https://github.com/mahmoud0saad/bricks.git --git-path new_feature 
+```
 
-  now added success when you need use 
-
- $ mason make  new_feature
-
+ 
