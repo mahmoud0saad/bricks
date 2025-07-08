@@ -1,0 +1,8 @@
+name: usecase_hooks
+description: Hook for usecase brick
+environment:
+  sdk: ">=2.17.0 <4.0.0"
+
+dependencies:
+  mason: any
+  recase: ^4.1.0
