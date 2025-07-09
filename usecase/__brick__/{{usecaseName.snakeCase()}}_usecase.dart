@@ -1,7 +1,6 @@
 import 'package:agriunions/core/errors/failure.dart';
 import 'package:agriunions/core/usecase/base_usecase.dart';
 import 'package:agriunions/features/{{feature.snakeCase()}}/domain/repositories/base_{{feature.snakeCase()}}_repository.dart';
-import 'package:agriunions/features/{{feature.snakeCase()}}/domain/usecase/params/{{paramsName.snakeCase()}}/{{paramsName.snakeCase()}}.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
  

@@ -4,6 +4,7 @@ import 'package:mason/mason.dart';
 void run(HookContext context) {
   final feature = context.vars['feature'] as String;
   final usecaseName = context.vars['usecaseName'] as String;
+  final usecaseNameCamelCase =usecaseName.camelCase;
   final paramsName = context.vars['paramsName'] as String;
   final modelName = context.vars['modelName'] as String;
   final featureSnake = feature.snakeCase;
@@ -47,14 +48,14 @@ void run(HookContext context) {
   final baseRepositoryFile = File(baseRepositorySourcePath);
   final implRepositoryFile = File(implRepositorySourcePath);
 
-  final methodDataSourceBase = 'Future $usecaseName($paramsName params);';
+  final methodDataSourceBase = 'Future $usecaseNameCamelCase($paramsName params);';
 
   final methodDataSourceImplementation = '''
   @override
-  Future $usecaseName($paramsName params) {
+  Future $usecaseNameCamelCase($paramsName params) {
     try {
       return _baseNetwork.post(
-        ApiStrings.${usecaseName}Url,
+        ApiStrings.${usecaseNameCamelCase}Url,
         data: params.toJson(),
       );
     } catch (e) {
@@ -64,13 +65,13 @@ void run(HookContext context) {
 ''';
 
   final methodRepositoryeBase =
-      'Future<Either<Failure, $returnType>> $usecaseName($paramsName params);';
+      'Future<Either<Failure, $returnType>>  $usecaseNameCamelCase($paramsName params);';
 
   final methodRepositoryImplementation = '''
  @override
-  Future<Either<Failure, $returnType>> $usecaseName($paramsName params) async {
+  Future<Either<Failure, $returnType>> $usecaseNameCamelCase($paramsName params) async {
     try {
-      final response = await ${feature}DataSource.$usecaseName(params);
+      final response = await ${feature.camelCase}DataSource.$usecaseNameCamelCase(params);
       return Right($returnRight);
     } on Exception catch (e) {
       return e.handleException<$returnType>();
@@ -121,7 +122,7 @@ void run(HookContext context) {
   // Inject into implementation datasource
   if (implDataSourceFile.existsSync()) {
     var implContent = implDataSourceFile.readAsStringSync();
-    if (!implContent.contains('Future $usecaseName')) {
+    if (!implContent.contains('Future $usecaseNameCamelCase')) {
       implContent = implContent.replaceFirst(
           RegExp(r'\}[\s]*$'), '$methodDataSourceImplementation\n}');
       implDataSourceFile.writeAsStringSync(implContent);
@@ -142,7 +143,7 @@ void run(HookContext context) {
   // Inject into  implementation Repository
   if (implRepositoryFile.existsSync()) {
     var implContent = implRepositoryFile.readAsStringSync();
-    if (!implContent.contains('Future $usecaseName')) {
+    if (!implContent.contains('Future $usecaseNameCamelCase')) {
       implContent = implContent.replaceFirst(
           RegExp(r'\}[\s]*$'), '$methodRepositoryImplementation\n}');
       implRepositoryFile.writeAsStringSync(implContent);
