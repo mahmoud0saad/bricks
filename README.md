@@ -27,7 +27,7 @@ To use this brick, first install the Mason CLI globally:
 Generate clean code structure and base files
 
 ```bash
-  mason add clean_code --git-url https://github.com/mahmoud0saad/bricks.git --git-path clean_code
+  mason add --global clean_code --git-url https://github.com/mahmoud0saad/bricks.git --git-path clean_code
 
   mason make  clean_code
  ```
@@ -41,7 +41,7 @@ Brick Generate a new feature folder (data, domain, presentation)
 Use this brick while inside the `lib/features/<feature>` directory to generate the files in the correct feature structure.
 
 ```bash 
-  mason add new_feature --git-url https://github.com/mahmoud0saad/bricks.git --git-path new_feature
+  mason add --global new_feature --git-url https://github.com/mahmoud0saad/bricks.git --git-path new_feature
 
   mason make new_feature
 ```
@@ -58,7 +58,7 @@ Use this brick while standing inside the `lib/features/<feature>/domain/usecase`
 
 
 ```bash
-  mason add usecase --git-url https://github.com/mahmoud0saad/bricks.git --git-path usecase
+  mason add --global usecase --git-url https://github.com/mahmoud0saad/bricks.git --git-path usecase
 
   mason make usecase \  --usecaseName=enterName \  --feature=cart \  --modelName=orderModel \  --paramsName=CreateOrderParams  
  ```
@@ -69,7 +69,7 @@ Use this brick while standing inside the `lib/features/<feature>/domain/usecase`
 Generates a Dart model class using the `freezed` and `json_serializable` packages.  
 
 ```bash
-  mason add freezed_model --git-url https://github.com/mahmoud0saad/bricks.git --git-path freezed_model
+  mason add --global freezed_model --git-url https://github.com/mahmoud0saad/bricks.git --git-path freezed_model
 
   mason make freezed_model 
  ```
